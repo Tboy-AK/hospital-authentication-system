@@ -45,7 +45,7 @@
         // Confirm that user email does not already exist
 
         foreach ($all_users as &$user) {
-            if (json_decode(file_get_contents($users_dir."/".$user), TRUE)["email"] == $email) {
+            if (json_decode(file_get_contents($users_dir."/".$user))->email === $email) {
 
                 // Redirect user to login page
 
