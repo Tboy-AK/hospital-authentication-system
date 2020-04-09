@@ -195,7 +195,7 @@
 
         $users_dir = "./db/users";
         
-        $all_users = array_diff(scandir($users_dir), array(".", ".."));
+        $all_users = array_diff(scandir($users_dir), array(".", "..", "keep.txt"));
 
         $id = count($all_users);
 
