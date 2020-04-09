@@ -13,6 +13,7 @@
 <header >
     <h3 >Medical Dashboard</h3>
     <p >Hello <?php print_r($_SESSION["name"]); ?></p>
+    <p ><?php print_r($_SESSION["email"]); ?></p>
     <h1 >Welcome to SNG</h1>
     <p >...Hospital for the ignorant</p><br/>
 </header>

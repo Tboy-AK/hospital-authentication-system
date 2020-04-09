@@ -5,8 +5,23 @@
     // Redirect user to the dashboard if already logged in
 
     if (isset($_SESSION["loggedin"]) && !empty($_SESSION["loggedin"])) {
-        header("location: dashboard.php");
-        return;
+        switch ($_SESSION["designation"]) {
+            case 'Patient':
+                header("location: patient.php");
+                break;
+            
+            case 'Medical team':
+                header("location: medical_team.php");
+                break;
+            
+            case 'Super admin':
+                header("location: admin.php");
+                break;
+                
+            default:
+                header("location: logout.php");
+                break;
+        }
     }
 
 ?>
