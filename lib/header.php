@@ -1,3 +1,9 @@
+<?php
+    // Start user session for all pages
+
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

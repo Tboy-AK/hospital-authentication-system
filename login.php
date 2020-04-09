@@ -1,7 +1,14 @@
 <?php include_once('lib/header.php'); ?>
 
-<?php 
-    session_start();
+<?php
+
+    // Redirect user to the dashboard if already logged in
+
+    if (isset($_SESSION["loggedin"]) && !empty($_SESSION["loggedin"])) {
+        header("location: dashboard.php");
+        return;
+    }
+
 ?>
 
 <h1 >Login to SNG</h1>
@@ -12,9 +19,7 @@
         echo "<p style='color: green' >".$_SESSION["message"]."</p>";
         $_SESSION["message"] = "";
     }
-?>
 
-<?php
     if (isset($_SESSION["error"]) && !empty($_SESSION["error"])) {
         echo "<p style='color: red' >".$_SESSION["error"]."</p>";
         $_SESSION["error"] = "";
