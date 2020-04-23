@@ -8,24 +8,30 @@
         switch ($_SESSION["designation"]) {
             case 'Patient':
                 header("location: patient.php");
-                break;
+                return;
             
             case 'Medical team':
                 header("location: medical_team.php");
-                break;
+                return;
                 
             default:
                 header("location: logout.php");
-                break;
+                return;
         }
         
+    }
+
+    if (!isset($_GET["token"]) || empty($_GET["token"]) || !isset($_GET["email"]) || empty($_GET["email"])) {
+        $_SESSION["error"] = "You are not allowed to view that page";
+        header("location: login.php");
+        return;
     }
 
 ?>
 
 <header >
     <h1 >Reset Password</h1>
-    <p >Reset the password associated with your account : [email]</p><br/>
+    <p >Reset the password associated with your account</p><br/>
 </header>
 
 <main >
@@ -45,16 +51,13 @@
                 $_SESSION["message"] = "";
             }
         ?>
+
+        <input name="token" type="hidden" value="<?php echo($_GET["token"]) ?>" />
+
         <p >
             <label for="email" >Email</label><br/>
-            <input readonly value="[email]"
-                <?php
-                    if (isset($_SESSION["email"]) && !empty($_SESSION["email"])) {
-                        echo "value="."'".$_SESSION["email"]."'";
-                        $_SESSION["email"]="";
-                    }
-                ?>
-                type="email" name="email" placeholder="Email"  />
+            <input readonly value="<?php echo($_GET["email"]) ?>"
+                type="email" name="email" placeholder="Email" />
         </p>
 
         <?php

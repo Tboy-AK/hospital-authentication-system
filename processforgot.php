@@ -90,30 +90,18 @@
         // Token generation and storage
 
         $token = bin2hex(random_bytes(64));
-        $tokens_file = "./db/tokens/reset_tokens.json";
-        $id = 0;
-        
-        $tokens_file_content = json_decode(file_get_contents($tokens_file));
-        $all_tokens = $tokens_file_content->data;
-
-        $id = count($all_tokens);
 
         $tokenObject = [
-            "id" => $id++,
             "email" => $email,
             "token" => password_hash($token, PASSWORD_BCRYPT),
             "reg_time" => time(),
         ];
 
-        array_push($all_tokens, $tokenObject);
-
-        $tokens_file_content->data = $all_tokens;
-
         try {
-            file_put_contents($tokens_file, json_encode($tokens_file_content));
+            file_put_contents("./db/tokens/".$email.".json", json_encode(["tokens"=>$tokenObject]));
 
         } catch (Exception $e) {
-            $_SESSION["error"] = "Something went wrong. Try resetting your password again";
+            $_SESSION["error"] = "Internal server error. Try resetting your password again";
             $_SESSION["email"] = $_POST["email"];
 
             header("location: forgot.php");
