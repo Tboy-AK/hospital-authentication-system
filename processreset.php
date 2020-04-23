@@ -73,7 +73,7 @@
         // Confirm that user email exists
         
         $user = json_decode(file_get_contents($users_dir."/".$user_file));
-        $user->password = $password;
+        $user->password = password_hash($password, PASSWORD_BCRYPT);
 
         try {
             file_put_contents($user_file, json_encode($user));
