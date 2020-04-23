@@ -63,18 +63,16 @@
 
     } else {
 
-        $email = $_POST["email"];
-
         $users_dir = "./db/users";
         
         if (count(array_filter(scandir($users_dir), function ($v) {return $v == $_POST["email"].".json";})) > 0) {
             $user_file_arr = array_filter(scandir($users_dir), function ($v) {return $v == $_POST["email"].".json";});
             $user_file = $user_file_arr[array_key_first($user_file_arr)];
         }
-        
+
         // Confirm that user email exists
         
-        $user = json_decode(file_get_contents($user_file));
+        $user = json_decode(file_get_contents($users_dir."/".$user_file));
         $user->password = $password;
 
         try {
