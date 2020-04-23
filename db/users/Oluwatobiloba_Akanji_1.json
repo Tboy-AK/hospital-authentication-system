@@ -1,0 +1,12 @@
+{
+    "id": 1,
+    "first_name": "Oluwatobiloba",
+    "last_name": "Akanji",
+    "email": "tobia807@snh.com",
+    "password": "$2y$10$NRSGoq2mvYMks1FGQ0UnuOvCegwGzueWL6JXhbvagz1zabj3wNz8.",
+    "gender": "Male",
+    "designation": "Medical team",
+    "department": "ICT - Information and Communication Technology",
+    "reg_time": 1587647639,
+    "last_login_time": 1587647654
+}

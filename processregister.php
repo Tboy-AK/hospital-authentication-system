@@ -235,7 +235,7 @@
             "reg_time" => time(),
         ];
 
-        file_put_contents($users_dir."/".$first_name."_".$last_name."_".$id.".json", json_encode($userObject));
+        file_put_contents($users_dir."/".$email.".json", json_encode($userObject));
 
         // Redirect user to login page
         

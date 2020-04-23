@@ -83,7 +83,7 @@
                         $_SESSION["email"]="";
                     }
                 ?>
-                type="text" name="email" placeholder="Email"  />
+                type="email" name="email" placeholder="Email"  />
         </p>
 
         <?php

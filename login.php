@@ -50,7 +50,7 @@
     ?>
     <p >
         <label >Email</label><br/>
-        <input type="text" name="email" placeholder="Email"  />
+        <input type="email" name="email" placeholder="Email"  />
     </p>
     <p >
         <label >Password</label><br/>

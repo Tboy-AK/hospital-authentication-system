@@ -113,12 +113,12 @@
             header("location: login.php");
             return;
         }
-
-        // Get user to verify password
         
         $active_user_file = $active_user_arr[array_key_first($active_user_arr)];
 
         $user = json_decode(file_get_contents($users_dir."/".$active_user_file));
+
+        // Get user to verify password
 
         if (!password_verify($password, $user->password)) {
             // Redirect user to login page
